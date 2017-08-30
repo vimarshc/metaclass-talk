@@ -1,3 +1,4 @@
+#classes-are-objects
 
 ### A small re-introduction over what classes are in Python 
 
@@ -7,9 +8,9 @@ While I was researching material for this talk I stumbled upon this image for th
 ![alt text](https://raw.githubusercontent.com/vimarshc/metaclass-talk/master/classes-are-objects/classes-biscuits.jpg)
 
 And as those who know how classes behave will agree that this is a pretty accurate analogy. If we go over the steps: 
-	* I have a dough prepare. 
-	* I fill the dough in the containers
-	* I bake for 30 minutes
+	- I have a dough prepare. 
+	- I fill the dough in the containers
+	- I bake for 30 minutes
 
 And voila we have instances of biscuits. 
 
@@ -41,10 +42,10 @@ As we read in the documentation creating a new class creates a object as well.
 When we used the `class` statement it creates an object with the name of FirstClass
 
 Since FirstClass itself is an object like first_instance we can: 
-	* Assign it to a variable 
-	* Copy it
-	* Add attributes to it
-	* Pass it to a parameter
+	- Assign it to a variable 
+	- Copy it
+	- Add attributes to it
+	- Pass it to a parameter
 
 Let's see: 
 ```
@@ -134,9 +135,9 @@ Now let's try to create a class object using `type` class or we cam say let's cr
 ```
 
 Under the hood we initialse the class type, the resulting instance gives us a class. The parameters that we pass are as follows: 
-	* String: Name of the class
-	* Tuple: A tuple of base classes which we want the class to inherit
-	* Dictinoary: Definfing the variables and methods we want inside the class. 
+	- String: Name of the class
+	- Tuple: A tuple of base classes which we want the class to inherit
+	0 Dictinoary: Definfing the variables and methods we want inside the class. 
 
 Let's try giving a base class and some variables. 
 ```

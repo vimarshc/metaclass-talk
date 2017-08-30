@@ -1,3 +1,4 @@
+#singleton-class
 
 First let's see how __call__ works with normal classes: 
 

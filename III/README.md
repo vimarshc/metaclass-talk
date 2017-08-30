@@ -1,3 +1,6 @@
+#using-namespace
+
+
 Let's go over the second step of when a class object is being created. 
 
 > Once the appropriate metaclass has been identified, then the class namespace is prepared. If the metaclass has a __prepare__ attribute, it is called as namespace = metaclass.__prepare__(name, bases, **kwds) (where the additional keyword arguments, if any, come from the class definition).

@@ -1,3 +1,5 @@
+#drf-example
+
 If you have been able to follow till here, the DRF example will be a peice of cake.
 
 DRF uses metaclass in the [Serializer](https://github.com/encode/django-rest-framework/blob/master/rest_framework/serializers.py#L349) over (here)[https://github.com/encode/django-rest-framework/blob/master/rest_framework/serializers.py#L288].

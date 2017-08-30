@@ -108,7 +108,7 @@ As we saw in the previous example that classes themselves are objects, i.e class
 
 ```
 
-![alt text]()
+![alt text](https://raw.githubusercontent.com/vimarshc/metaclass-talk/master/classes-are-objects/class-is-instance.png)
 
 All class objects are instances of the class `type`. Using the biscuits example, as the steel container is the template for the biscuit, steel is the template for the steel container. 
 

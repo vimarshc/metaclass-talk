@@ -6,7 +6,7 @@ DRF uses metaclass in the [Serializer](https://github.com/encode/django-rest-fra
 
 What it is doing is when a serializer class is initiated inside the __new__ function a new attribute is added to the dictionary of attributes. 
 
-Let's run some tests in [DRF](https://github.com/vimarshc/django-rest-framework/blob/dd2230cd8baf08d3cc645eb6c7098fb52122f001/tests/test_serializer.py#L119):
+Let's run some tests in [DRF](https://github.com/vimarshc/django-rest-framework/blob/dd2230cd8baf08d3cc645eb6c7098fb52122f001/tests/test_serializer.py#L119) and place a deugger so that we can get the results of the modifications introduced by `metaclass`:
 ```
 ((venv-drftest)Vimarshs-MacBook-Pro:django-rest-framework vimarshchaturvedi$ ./runtests.py test_valid_serializer
 ================================================================================ test session starts ================================================================================

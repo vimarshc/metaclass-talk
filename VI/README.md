@@ -7,7 +7,7 @@ DRF uses metaclass in the [Serializer](https://github.com/encode/django-rest-fra
 What it is doing is when a serializer class is initiated inside the __new__ function a new attribute is added to the dictionary of attributes. 
 
 Let's run some tests in [DRF](https://github.com/vimarshc/django-rest-framework/blob/dd2230cd8baf08d3cc645eb6c7098fb52122f001/tests/test_serializer.py#L119):
-
+```
 ((venv-drftest)Vimarshs-MacBook-Pro:django-rest-framework vimarshchaturvedi$ ./runtests.py test_valid_serializer
 ================================================================================ test session starts ================================================================================
 platform darwin -- Python 2.7.10, pytest-3.0.5, py-1.4.34, pluggy-0.4.0
@@ -26,12 +26,11 @@ tests/test_serializer.py
 OrderedDict([('char', CharField()), ('integer', IntegerField())])
 (Pdb) 
 
+```
 
 
-
-
-The second piece of snippet makes sure that the fields in the classes it is inheriting are also included. Let's [see](https://github.com/vimarshc/django-rest-framework/blob/bf686cf4f6309b8757ea7b20f9f4bcd710bbe003/tests/test_serializer.py#L121) 
-
+The second piece of snippet inside the function makes sure that the fields in the classes it is inheriting are also included. Let's [see](https://github.com/vimarshc/django-rest-framework/blob/bf686cf4f6309b8757ea7b20f9f4bcd710bbe003/tests/test_serializer.py#L121) 
+```
 (venv-drftest)Vimarshs-MacBook-Pro:django-rest-framework vimarshchaturvedi$ ./runtests.py test_valid_serializer
 ================================================================================ test session starts ================================================================================
 platform darwin -- Python 2.7.10, pytest-3.0.5, py-1.4.34, pluggy-0.4.0
@@ -56,11 +55,13 @@ OrderedDict([('char', CharField()), ('integer', IntegerField())])
 
 
 
-
+```
 
 
 To finish off this example let's try to put a debugger inside the [metaclass](https://github.com/vimarshc/django-rest-framework/blob/69f93e00bac5b519f12a4214711732c66ddfb041/tests/test_serializer.py#L102)
 
+
+```
 tests/test_serializer.py 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PDB set_trace (IO-capturing turned off) >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 > /Users/vimarshchaturvedi/Desktop/reading/drf/django-rest-framework/tests/test_serializer.py(103)__new__()
@@ -90,7 +91,7 @@ OrderedDict([('char', CharField()), ('integer', IntegerField())])
 (Pdb) c
 .
 
-
+```
 
 
 

@@ -1,6 +1,17 @@
 # awesome-example
 
-json.dumps takes as parameter the value it has to serialize. 
+
+Most people must be familiar with the json.dumps function. 
+
+```
+>>> import json
+>>> json.dumps({'one':1})
+'{"one": 1}'
+>>> 
+
+```
+As per the documentation json.dumps takes as parameter the value it has to dump.
+Now, what I can achieve with metaclass is I can introduce dumps method into my own class. 
 
 ```
 >>> class _D(type):
@@ -19,4 +30,4 @@ json.dumps takes as parameter the value it has to serialize.
 
 ```
 
-In the above function when dumps is attached to the class, the function becomes a method with first parameter as `self`.
+In the above function when dumps is attached to the class, the function becomes a method with first parameter as `self`. So, similarily I can attach the print function and whatever function I wish to. I can import some function from somewhere and just attach it to my class. If you are making a library this approach will allow your user to not care about the definition of the method. 

@@ -6,30 +6,32 @@ Let's go over the second step of when a class object is being created.
 > Once the appropriate metaclass has been identified, then the class namespace is prepared. If the metaclass has a __prepare__ attribute, it is called as namespace = metaclass.__prepare__(name, bases, **kwds) (where the additional keyword arguments, if any, come from the class definition).
 
 
-Let's go over an example: 
+If you recall the third argument in the type initiation and the __new__ function; attrs (The dictionary), the namespace allows us the modify this dictionary. In the above once  `namespace = metaclass.__prepare__(name, bases, **kwds)` is called all the attributes passed in the attrs parameter are attached to the namepspace variable. Access to this process and we can change the dictionary to a OrderedDict or even override the dict class to add custom behaviour as we can see in the following examples: 
 
 
-```
-	>>> class OrderedClass(type):
-	... 
-	...  @classmethod
-	...  def __prepare__(metacls, name, bases, **kwds):
-	...   return collections.OrderedDict()
-	...  def __new__(cls, name, bases, namespace, **kwds):
-	...   result = type.__new__(cls, name, bases, dict(namespace))
-	...   result.members = tuple(namespace)
-	...   return result
-	... 
-	>>> class A(metaclass=OrderedClass):
-	...     def one(self): pass
-	...     def two(self): pass
-	...     def three(self): pass
-	...     def four(self): pass
-	... 
 
 ```
+>>> class OrderedClass(type):
+... 
+...  @classmethod
+...  def __prepare__(metacls, name, bases, **kwds):
+...   return collections.OrderedDict()
+...  def __new__(cls, name, bases, namespace, **kwds):
+...   result = type.__new__(cls, name, bases, dict(namespace))
+...   result.members = tuple(namespace)
+...   return result
+... 
+>>> class A(metaclass=OrderedClass):
+...     def one(self): pass
+...     def two(self): pass
+...     def three(self): pass
+...     def four(self): pass
+... 
 
-And as always we can introduce custom behaviour by passing a dict which has been inherited and desired behaviour has been introduced.  
+```
+
+
+
 
 ```
 # The custom dictionary

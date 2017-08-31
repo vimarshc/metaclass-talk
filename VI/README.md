@@ -1,4 +1,4 @@
-#drf-example#
+# drf-example
 
 If you have been able to follow till here, the DRF example will be a peice of cake.
 

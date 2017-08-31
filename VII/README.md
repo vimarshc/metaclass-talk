@@ -1,4 +1,4 @@
-#django-example
+# django-example
 
 For the last example of this talk let's go over how django uses metaclasses uses metaclass to maintain backward compatability. This usage of metaclass was introduced into the source code as a result of this [issue](https://code.djangoproject.com/ticket/15363). This issue was that over time there was a change in the nameing convention in django. Initially `get_queryset` used to be `get_query_set` being one of the examples. 
 

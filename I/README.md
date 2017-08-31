@@ -1,4 +1,4 @@
-#classes-are-objects#
+# classes-are-objects
 
 ### A small re-introduction over what classes are in Python 
 

@@ -4,11 +4,10 @@ Let's first have a look at what python's documentation says about using the __me
 
 
 >When a class definition is executed, the following steps occur:
-
->the appropriate metaclass is determined
->the class namespace is prepared
->the class body is executed
->the class object is created
+> -the appropriate metaclass is determined
+> -the class namespace is prepared
+> -the class body is executed
+> -the class object is created
 
 
 When we use the `class` keyword the first thing that python does is that it tries to determine what class should be used to initialse the class object. When we create a class w/o specifying the __metaclass__ attribute it falls back on the `type` class. 

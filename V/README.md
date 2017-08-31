@@ -18,7 +18,7 @@ First let's see how __call__ works with normal classes:
 >>> 
 ```
 
-So, the __call__ provides us a way of reinitialsiing the class. So, when we try to initialse an instance the __call__ method id call. The `type` class also provides us a __call__ function which gets called every time you initialise a class. 
+So, the __call__ provides us a way of reinitialising a class. So, when we try to initialse an instance the __call__ method is call. The `type` class also provides us a __call__ function which gets called every time you initialise a class. (Notice the difference b/w initialising and reinitialising)
 
 ```
 
@@ -69,3 +69,5 @@ True
 >>> 
 
 ```
+
+This approach will allow you to define a class in one file and then you can use instances of the class across different files maintaining dynamic global variables. 

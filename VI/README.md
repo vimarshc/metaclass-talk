@@ -2,11 +2,14 @@
 
 If you have been able to follow till here, the DRF example will be a peice of cake.
 
-DRF uses metaclass in the [Serializer](https://github.com/encode/django-rest-framework/blob/master/rest_framework/serializers.py#L349) over (here)[https://github.com/encode/django-rest-framework/blob/master/rest_framework/serializers.py#L288].
+DRF uses metaclass in the [Serializer](https://github.com/encode/django-rest-framework/blob/master/rest_framework/serializers.py#L349) over [here](https://github.com/encode/django-rest-framework/blob/master/rest_framework/serializers.py#L288).
 
-What it is doing is when a serializer class is initiated inside the __new__ function a new attribute is added to the dictionary of attributes. 
+What it is doing is when a serializer class is initiated inside the __new__ function a new attribute is added to the dictionary of attributes (attrs) and thus a new attribute shall be added to the instance. 
 
-Let's run some tests in [DRF](https://github.com/vimarshc/django-rest-framework/blob/dd2230cd8baf08d3cc645eb6c7098fb52122f001/tests/test_serializer.py#L119) and place a deugger so that we can get the results of the modifications introduced by `metaclass`:
+Now what is the attribute it is adding. All the fields that are instances of the `Field` class are added to this new attribute and are maintained as a OrderedDict. When a instance is created it will have a attribute maintaining a list of all the fields. Which is exactly what it does [here](https://github.com/encode/django-rest-framework/blob/master/rest_framework/serializers.py#L382)
+
+I have made some changes to the tests of DRF and places a debugger so that we can see what's happening. 
+Let's run [them](https://github.com/vimarshc/django-rest-framework/blob/dd2230cd8baf08d3cc645eb6c7098fb52122f001/tests/test_serializer.py#L119) and place a deugger so that we can get the results of the modifications introduced by `metaclass`:
 ```
 ((venv-drftest)Vimarshs-MacBook-Pro:django-rest-framework vimarshchaturvedi$ ./runtests.py test_valid_serializer
 ================================================================================ test session starts ================================================================================

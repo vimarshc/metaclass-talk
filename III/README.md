@@ -34,29 +34,35 @@ If you recall the third argument in the type initiation and the __new__ function
 
 
 ```
-# The custom dictionary
-class member_table(dict):
-    def __init__(self):
-        self.member_names = []
-    def __setitem__(self, key, value):
-        if key not in self:
-            self.member_names.append(key)
-        dict.__setitem__(self, key, value)
-
-# The metaclass
-class OrderedClass(type):
-    @classmethod
-    def __prepare__(metacls, name, bases): # No keywords in this case
-        return member_table()
-    def __new__(cls, name, bases, classdict):
-        result = type.__new__(cls, name, bases, classdict)
-        result.member_names = classdict.member_names
-        return result
-
-class MyClass(metaclass=OrderedClass):
-    def method1(self):
-        pass
-    def method2(self):
-        pass
+>>> # The custom dictionary
+>>> class member_table(dict):
+...     def __init__(self):
+...         self.member_names = []
+...     def __setitem__(self, key, value):
+...         if key not in self:
+...             self.member_names.append(key)
+...         dict.__setitem__(self, key, value)
+... 
+>>> # The metaclass
+>>> class OrderedClass(type):
+...     @classmethod
+...     def __prepare__(metacls, name, bases): # No keywords in this case
+...         return member_table()
+...     def __new__(cls, name, bases, classdict):
+...         result = type.__new__(cls, name, bases, classdict)
+...         result.member_names = classdict.member_names
+...         return result
+... 
+>>> 
+>>> class MyClass(metaclass=OrderedClass):
+...     def method1(self):
+...         pass
+...     def method2(self):
+...         pass
+... 
+>>> a = MyClass()
+>>> a.member_names
+['__module__', '__qualname__', 'method1', 'method2']
+>>> 
 
 ```
